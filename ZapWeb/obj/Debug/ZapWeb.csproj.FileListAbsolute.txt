@@ -23,7 +23,7 @@ C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWe
 C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\obj\Debug\ZapWeb.csprojResolveAssemblyReference.cache
 C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\obj\Debug\ZapWeb.dll
 C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\obj\Debug\ZapWeb.pdb
-C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\bin\PetaPoco.dll
-C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\bin\PetaPoco.pdb
 C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\bin\Pillar.dll
+C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\bin\PetaPoco.dll
 C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\bin\Pillar.pdb
+C:\Users\Manoel\Google Drive\Trabalho\Aguia Software\Clientes\Zap\Software\ZapWeb\bin\PetaPoco.pdb

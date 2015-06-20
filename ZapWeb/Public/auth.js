@@ -1,19 +1,16 @@
 ﻿yum.define([
-	PI.Url.create('App', '/ui.config.js')
+	PI.Url.create('App', '/ui.config.js'),
+    PI.Url.create('Auth', '/page.js')
 ], function (html) {
     
     Class('App').Extend(Mvc.Component).Body({
 
-        didFinishLaunch: function () {
-           
-        },
+        viewDidLoad: function () {
+            var auth = new Auth.Page();
 
-        progressLoad: function (total) {
-            
-        },
+            auth.render(this.view.body);
 
-        events: {
-
+            this.base.viewDidLoad();
         }
 
     });

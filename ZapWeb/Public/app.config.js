@@ -35,6 +35,6 @@ PI.Url.add('Tips', 'Lib', '/tips');
 PI.Url.add('Scroll', 'Lib', '/scroll');
 
 /**
- * Alias Url
+ * Url Alias
  */
-//PI.Url.add('Grupo', 'Modules', '/grupo');
+PI.Url.add('Auth', 'Modules', '/auth');

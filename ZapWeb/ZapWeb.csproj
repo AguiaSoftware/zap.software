@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{615402DA-55BC-422D-8C72-DB43BC8227B4}</ProjectGuid>
+    <ProjectGuid>{0D80A5DB-A15C-40FA-905A-1D1FE32CC487}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -40,7 +40,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PetaPoco">
+    <Reference Include="PetaPoco, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Projeto Asus\Source\PetaPoco\PetaPoco\bin\Release\PetaPoco.dll</HintPath>
     </Reference>
     <Reference Include="Pillar">
@@ -50,6 +51,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -122,21 +124,168 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Lib\Mvc\BusinessLogic.cs" />
+    <Compile Include="Lib\Mvc\Controller.cs" />
+    <Compile Include="Lib\Mvc\Repositorio.cs" />
+    <Compile Include="Models\Session\SessionRepositorio.cs" />
+    <Compile Include="Models\Session\Session.cs" />
+    <Compile Include="Models\Auth\AuthRules.cs" />
+    <Compile Include="Models\Account\Account.cs" />
+    <Compile Include="Models\Account\AccountRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\messages.txt" />
     <Content Include="Global.asax" />
+    <Content Include="Public\app.config.js" />
+    <Content Include="Public\auth.js" />
+    <Content Include="Public\bootstrap\css\app.css" />
     <Content Include="Public\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Public\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="Public\bootstrap\css\bootstrap.css" />
     <Content Include="Public\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Public\bootstrap\css\font-awesome.min.css" />
+    <Content Include="Public\bootstrap\css\font.css" />
+    <Content Include="Public\bootstrap\css\simple-line-icons.css" />
+    <Content Include="Public\bootstrap\fonts\fontawesome-webfont.svg" />
+    <Content Include="Public\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Public\bootstrap\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="Public\bootstrap\fonts\Simple-Line-Icons.svg" />
     <Content Include="Public\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Public\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Public\bootstrap\js\bootstrap.js" />
     <Content Include="Public\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Public\lib\datatime\datatime.js" />
+    <Content Include="Public\lib\datatime\week.js" />
+    <Content Include="Public\lib\jquery\jquery.js" />
+    <Content Include="Public\lib\pillar\ui\alert\alert.css" />
+    <Content Include="Public\lib\pillar\ui\alert\alert.html" />
+    <Content Include="Public\lib\pillar\ui\alert\alert.js" />
+    <Content Include="Public\lib\pillar\ui\autocomplete\autocomplete.css" />
+    <Content Include="Public\lib\pillar\ui\autocomplete\autocomplete.html" />
+    <Content Include="Public\lib\pillar\ui\autocomplete\autocomplete.js" />
+    <Content Include="Public\lib\pillar\ui\button\button.css" />
+    <Content Include="Public\lib\pillar\ui\button\button.html" />
+    <Content Include="Public\lib\pillar\ui\button\button.js" />
+    <Content Include="Public\lib\pillar\ui\checkbox\checkbox.css" />
+    <Content Include="Public\lib\pillar\ui\checkbox\checkbox.html" />
+    <Content Include="Public\lib\pillar\ui\checkbox\checkbox.js" />
+    <Content Include="Public\lib\pillar\ui\config.js" />
+    <Content Include="Public\lib\pillar\ui\confirm\confirm.css" />
+    <Content Include="Public\lib\pillar\ui\confirm\confirm.html" />
+    <Content Include="Public\lib\pillar\ui\confirm\confirm.js" />
+    <Content Include="Public\lib\pillar\ui\datebox\datebox.css" />
+    <Content Include="Public\lib\pillar\ui\datebox\datebox.html" />
+    <Content Include="Public\lib\pillar\ui\datebox\datebox.js" />
+    <Content Include="Public\lib\pillar\ui\datebox\datepicker.css" />
+    <Content Include="Public\lib\pillar\ui\datebox\datepicker.js" />
+    <Content Include="Public\lib\pillar\ui\dialog\dialog.css" />
+    <Content Include="Public\lib\pillar\ui\dialog\dialog.html" />
+    <Content Include="Public\lib\pillar\ui\dialog\dialog.js" />
+    <Content Include="Public\lib\pillar\ui\dialog\icons.png" />
+    <Content Include="Public\lib\pillar\ui\element\element.js" />
+    <Content Include="Public\lib\pillar\ui\evidence\evidence.css" />
+    <Content Include="Public\lib\pillar\ui\evidence\evidence.html" />
+    <Content Include="Public\lib\pillar\ui\evidence\evidence.js" />
+    <Content Include="Public\lib\pillar\ui\label\label.css" />
+    <Content Include="Public\lib\pillar\ui\label\label.js" />
+    <Content Include="Public\lib\pillar\ui\label\points.png" />
+    <Content Include="Public\lib\pillar\ui\listitem\arrow.png" />
+    <Content Include="Public\lib\pillar\ui\listitem\item.css" />
+    <Content Include="Public\lib\pillar\ui\listitem\item.html" />
+    <Content Include="Public\lib\pillar\ui\listitem\item.js" />
+    <Content Include="Public\lib\pillar\ui\listitem\list.css" />
+    <Content Include="Public\lib\pillar\ui\listitem\list.html" />
+    <Content Include="Public\lib\pillar\ui\listitem\list.js" />
+    <Content Include="Public\lib\pillar\ui\marktext\marktext.js" />
+    <Content Include="Public\lib\pillar\ui\menudown\dw.png" />
+    <Content Include="Public\lib\pillar\ui\menudown\menudown.css" />
+    <Content Include="Public\lib\pillar\ui\menudown\menudown.html" />
+    <Content Include="Public\lib\pillar\ui\menudown\menudown.js" />
+    <Content Include="Public\lib\pillar\ui\menudown\menudownitem.css" />
+    <Content Include="Public\lib\pillar\ui\menudown\menudownitem.html" />
+    <Content Include="Public\lib\pillar\ui\menudown\menudownitem.js" />
+    <Content Include="Public\lib\pillar\ui\menu\item.css" />
+    <Content Include="Public\lib\pillar\ui\menu\item.html" />
+    <Content Include="Public\lib\pillar\ui\menu\item.js" />
+    <Content Include="Public\lib\pillar\ui\menu\menu.css" />
+    <Content Include="Public\lib\pillar\ui\menu\menu.html" />
+    <Content Include="Public\lib\pillar\ui\menu\menu.js" />
+    <Content Include="Public\lib\pillar\ui\menu\menubar.css" />
+    <Content Include="Public\lib\pillar\ui\menu\menubar.html" />
+    <Content Include="Public\lib\pillar\ui\menu\menubar.js" />
+    <Content Include="Public\lib\pillar\ui\menu\separador.css" />
+    <Content Include="Public\lib\pillar\ui\menu\separador.html" />
+    <Content Include="Public\lib\pillar\ui\menu\separador.js" />
+    <Content Include="Public\lib\pillar\ui\modal\modal.css" />
+    <Content Include="Public\lib\pillar\ui\modal\modal.html" />
+    <Content Include="Public\lib\pillar\ui\modal\modal.js" />
+    <Content Include="Public\lib\pillar\ui\modal\modal.png" />
+    <Content Include="Public\lib\pillar\ui\popup\popup.css" />
+    <Content Include="Public\lib\pillar\ui\popup\popup.html" />
+    <Content Include="Public\lib\pillar\ui\popup\popup.js" />
+    <Content Include="Public\lib\pillar\ui\radiobox\radiobox.js" />
+    <Content Include="Public\lib\pillar\ui\search\containers\containers.css" />
+    <Content Include="Public\lib\pillar\ui\search\containers\containers.html" />
+    <Content Include="Public\lib\pillar\ui\search\containers\containers.js" />
+    <Content Include="Public\lib\pillar\ui\search\search.css" />
+    <Content Include="Public\lib\pillar\ui\search\search.html" />
+    <Content Include="Public\lib\pillar\ui\search\search.js" />
+    <Content Include="Public\lib\pillar\ui\selection\arrow-up-down.png" />
+    <Content Include="Public\lib\pillar\ui\selection\base.js" />
+    <Content Include="Public\lib\pillar\ui\selection\button.css" />
+    <Content Include="Public\lib\pillar\ui\selection\button.html" />
+    <Content Include="Public\lib\pillar\ui\selection\button.js" />
+    <Content Include="Public\lib\pillar\ui\selection\check.png" />
+    <Content Include="Public\lib\pillar\ui\selection\item.css" />
+    <Content Include="Public\lib\pillar\ui\selection\item.html" />
+    <Content Include="Public\lib\pillar\ui\selection\item.js" />
+    <Content Include="Public\lib\pillar\ui\selection\selection.css" />
+    <Content Include="Public\lib\pillar\ui\selection\selection.html" />
+    <Content Include="Public\lib\pillar\ui\selection\selection.js" />
+    <Content Include="Public\lib\pillar\ui\selection\separador.css" />
+    <Content Include="Public\lib\pillar\ui\selection\separador.js" />
+    <Content Include="Public\lib\pillar\ui\tabbar\tabbar.css" />
+    <Content Include="Public\lib\pillar\ui\tabbar\tabbar.js" />
+    <Content Include="Public\lib\pillar\ui\tabview\tabview.js" />
+    <Content Include="Public\lib\pillar\ui\tag\close.png" />
+    <Content Include="Public\lib\pillar\ui\tag\tag.css" />
+    <Content Include="Public\lib\pillar\ui\tag\tag.js" />
+    <Content Include="Public\lib\pillar\ui\textareatoken\close.png" />
+    <Content Include="Public\lib\pillar\ui\textareatoken\textareatoken.css" />
+    <Content Include="Public\lib\pillar\ui\textareatoken\textareatoken.html" />
+    <Content Include="Public\lib\pillar\ui\textareatoken\textareatoken.js" />
+    <Content Include="Public\lib\pillar\ui\textareatoken\textareatokendata.css" />
+    <Content Include="Public\lib\pillar\ui\textareatoken\textareatokendata.html" />
+    <Content Include="Public\lib\pillar\ui\textareatoken\textareatokendata.js" />
+    <Content Include="Public\lib\pillar\ui\textarea\autosize.js" />
+    <Content Include="Public\lib\pillar\ui\textarea\textarea.css" />
+    <Content Include="Public\lib\pillar\ui\textarea\textarea.html" />
+    <Content Include="Public\lib\pillar\ui\textarea\textarea.js" />
+    <Content Include="Public\lib\pillar\ui\textboxselect\close.png" />
+    <Content Include="Public\lib\pillar\ui\textboxselect\textboxselect.css" />
+    <Content Include="Public\lib\pillar\ui\textboxselect\textboxselect.html" />
+    <Content Include="Public\lib\pillar\ui\textboxselect\textboxselect.js" />
+    <Content Include="Public\lib\pillar\ui\textbox\mask.js" />
+    <Content Include="Public\lib\pillar\ui\textbox\textbox.css" />
+    <Content Include="Public\lib\pillar\ui\textbox\textbox.html" />
+    <Content Include="Public\lib\pillar\ui\textbox\textbox.js" />
+    <Content Include="Public\lib\pillar\ui\upload\upload.css" />
+    <Content Include="Public\lib\pillar\ui\upload\upload.html" />
+    <Content Include="Public\lib\pillar\ui\upload\upload.js" />
+    <Content Include="Public\lib\scroll\scroll.js" />
+    <Content Include="Public\lib\signalR\signalR.js" />
+    <Content Include="Public\lib\tips\tip-yellowsimple_arrows.gif" />
+    <Content Include="Public\lib\tips\tips.css" />
+    <Content Include="Public\lib\tips\tips.js" />
+    <Content Include="Public\modules\auth\model.js" />
+    <Content Include="Public\modules\auth\page.css" />
+    <Content Include="Public\modules\auth\page.html" />
+    <Content Include="Public\modules\auth\page.js" />
+    <Content Include="Public\ui.config.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -147,22 +296,165 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Lib\" />
-    <Folder Include="Models\" />
     <Folder Include="Public\files\" />
-    <Folder Include="Public\modules\" />
+    <Folder Include="Public\lib\pillar\ui\.git\objects\info\" />
+    <Folder Include="Public\lib\pillar\ui\.git\objects\pack\" />
+    <Folder Include="Public\lib\pillar\ui\.git\refs\tags\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Public\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Public\bootstrap\fonts\fontawesome-webfont.eot" />
+    <Content Include="Public\bootstrap\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Public\bootstrap\fonts\fontawesome-webfont.woff" />
+    <Content Include="Public\bootstrap\fonts\FontAwesome.otf" />
+    <Content Include="Public\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Public\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Public\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Public\bootstrap\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Public\bootstrap\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Public\bootstrap\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Public\bootstrap\fonts\sourcesanspro\sourcesanspro-bold.woff" />
+    <Content Include="Public\bootstrap\fonts\sourcesanspro\sourcesanspro-light.woff" />
+    <Content Include="Public\bootstrap\fonts\sourcesanspro\sourcesanspro.woff" />
+    <Content Include="Public\lib\pillar\ui\.git\COMMIT_EDITMSG" />
+    <Content Include="Public\lib\pillar\ui\.git\config" />
+    <Content Include="Public\lib\pillar\ui\.git\description" />
+    <Content Include="Public\lib\pillar\ui\.git\HEAD" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\applypatch-msg.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\commit-msg.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\post-update.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\pre-applypatch.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\pre-commit.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\pre-push.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\pre-rebase.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\hooks\update.sample" />
+    <Content Include="Public\lib\pillar\ui\.git\index" />
+    <Content Include="Public\lib\pillar\ui\.git\info\exclude" />
+    <Content Include="Public\lib\pillar\ui\.git\logs\HEAD" />
+    <Content Include="Public\lib\pillar\ui\.git\logs\refs\heads\master" />
+    <Content Include="Public\lib\pillar\ui\.git\logs\refs\remotes\origin\master" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\01\a9bde051fdef25939103f0a5c490ed2942edec" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\06\2e969742bac9aecc4657483dcdd69b5f640b7c" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\06\497c98b4ba7435ff3445bc2559e0f515453a09" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\07\4b2faba86e7fb408fc9d5cf636b336e0144fc5" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\08\6f90452e9d721d7e9096039fb10932219e9baa" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\09\cd7b0ad0ee68c4506464643dc1e2cffe6a895b" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\0b\6033485338f190fdd4f4d0cc770b4b6939e311" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\0c\dd7272174dc98e7638ea8c1db296f9a59d86ad" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\11\6c659dc0105b7c589a866d6a27f0a7ce12ccce" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\18\0d7fe85362c790063065847eaf8f8b93500b04" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\1d\b633441cd4c385863da2e1d046a7fecd140535" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\1e\3a5958b0d655eb685f97fceaae7ffb65b0c644" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\1e\3e3c79a784b23648f81ed184d33f8b8bf7ccaa" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\1f\61f87f8a79ef9e3b5204faad073887c64a0f30" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\1f\eaf14ca4e33ea59fcfe67cfcd7d2319437a0f3" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\20\389a039928dc17a9e39de8525bb1e311e46a3a" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\22\cd0d5e5349bda6217189ef953e528b1b30d3de" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\25\84b6475e74955452cda3ceb00f6c01521709c5" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\29\c8f3e46d6e688b62788351094ebec7e41fa7df" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\2a\3b9bd99ff2f23ebd5dd78772eb8a0b55a4533c" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\2d\163a660de2ebf4905f969729010fb65b49d48a" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\2f\1a02ee05cfbecb426af3a5a54437b6cf9844ae" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\30\1aa923d023b5dda33afc0705348d18ebf29f2e" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\30\2e9fc21c304bffefe7784d05dc52ea7db0f576" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\30\f1c8f00283cd0ac2c32edc2ea3b08f5e44a07c" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\32\0f418726afe6c8ce82d9580bc348649631d374" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\33\35005f015533ea7ff3441f5369614b78d5e4f8" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\35\130ef063ed19e5867d8e07625621f756d93ff0" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\35\dcf3d2f8b106dac0a000f3fa9bc47c45ff7328" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\38\fe5b942b3b16daabac25cecd6f3368476944f0" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\3e\728591e836183b883d0b053b7c81abede983af" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\3f\cd274fd7c0695c6bbd3bdf2a5fc84f6021063f" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\41\1e0e0c21392efa87e225bc7adfaca43f5e4c83" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\41\ae23d7704a53d75c8867b6062d840806fa4e85" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\43\1bd4c35436ff41897362c6cff5af48b8e921c8" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\43\49fd7bb9ef4889d8b350ae8e2325346d197efc" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\47\bc7268ae00c03bd4fee92c12074aa4bdd20eda" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\4e\e1a3f4d8b7892269a1262375acfd32e05cac37" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\52\7581d922bedd61b5bae93e32dec10b6ae8ad0f" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\5a\54506b80dec2a38fd05f1c88ae10225877ad5b" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\5b\ef0abdd42f037a84aa528da2d5dd639241bd2f" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\5b\fa2d22cb65c8d05a1bcfc928f462ceacbb1659" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\5c\8ba4de05b77076c78e6ba7485e2126a806d146" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\5f\282702bb03ef11d7184d19c80927b47f919764" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\62\bf4ecf2d51f4dde747563ab9c2a7f567c0a713" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\69\400f138be81c25766407b94661e81988f0e067" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\6e\82218eb2c3a863d144e8a8e9b6ef50d235487e" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\70\e22c4b1c8f5e7500d408e5995cbcd088eed4e8" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\75\5be2226221084879b6fce69999ff5f223f5f5c" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\75\68c2ad3ad6ff0b5f9a1174d619abe637cffff8" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\75\e43f4e375e98467b16ff418d2421591f4a4ee5" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\76\98bfb91f63b7aa8f05c3657fed716509bbf99b" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\76\e6fa7dceaf542381c4685d7470ab753d39ee9e" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\79\805dc027a0bef1fd5333d1c6e25ad43e3087a5" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\7a\09088b34be810dac79c37e195064de3a6f16b1" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\85\b240f9aa1a560c070e03d21de737e537cb070d" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\89\08c12debc44f1a0e00db1fd14ef18ff2a3a6e4" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\89\fa5e9cb3b47ba146a3b78ba98cbe24a00db027" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\93\010857e6996c5bf5bd2efc8ea403ecc9e00e82" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\94\31fb26e7c26fb0d7cc53dae4b79ac61bedcf42" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\94\663b3aeece7aeaa2498ef1cac98d8d0e0fa69c" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\9a\ea6723f15c29cb4c5c627df7ac3c4d564ca85d" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\9f\eb4d42b6e2eb20d5ff7228b7bbe39d896bab83" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\a0\cb3be1d5fc82baafa8bf16f3c5971ca34f96b5" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\a5\f1b17ca8f7dfc47d08eb7110a6b6e6abb6f53d" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\a7\2a655a1f05e7d38484f892b06effd33b308bf9" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\a7\6102e07086d1b58fb818732d417aedf3e79eaa" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\a7\cbcb83702f977d0f76adb0e35e1780275cb872" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\a7\dc86f8e27e036995c9b3b4e7ddfe9447341d37" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\a9\c94855b3ce283f67b7720b40545a5ec27e971c" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\aa\c25845973b46bb401678f7ea020e7ee8097106" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\af\c5ef6e7209280339be10c65d61eb7ab3b01ace" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\b0\9e489ec91b424f73befff52d66770a598a03ea" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\b2\ea181c0ac3043d2ad4233c567c33c93b988f5b" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\b8\19f23cc677bbbfe991f02c1268388304e6c122" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\bb\55a0d949f6f706714989dd059771bd4cde75e0" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\bf\60855b8f07a4c50d0305a5f8d9a641f8213f9e" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\c1\d9cf9f72025bc8ae088555c401ff07192adcf4" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\c2\f1a1832cfe2c295f3a9c0515ae33939b4eb246" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\c3\68e26d3b0b36aae9653e2b1acd126720e65756" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\c4\88ce053c2e33c169e9fff275e00bd8e69acdeb" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\c5\30b135512b2660eab4508e42e5b85dbe9eaff9" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\cc\a3bca5b106f571ace5395112f58bc35c5808fa" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\d2\17a3ce47b0d49772e742f98e65436fb307978a" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\d2\8de05d8ae99ed805cc6138dd292185619e2c62" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\d5\94d4f296b6a1c36afa74cb78035c8217b967af" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\d6\09064ba63b1e17efb6c88e3a64f2b5f615aaea" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\d6\bf0dce140a789260a0dc277dd4bad7192cdf40" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\d9\85572fecd2e941393a75098d3e483ba3bacae5" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\da\cbd44a85e8333c9638d5dd9044e5bafc284be5" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\de\29efe8ecb145b4684c8b74379c5fcf12e7fef9" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\de\ee39b0ca9bc1b994b23a06b864355b3b364dba" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\df\0aa4e5ec007c28bce960251da14473b4106fef" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\e3\147a5b94ee9cd919bbde7b1bad2e9881766cfd" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\e6\ea037701c940f4c883c304174fe9e31b66a8a4" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\e8\c89ae81d09ac0a06c84d21f3bf988fb76887ac" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\ec\aa1ca756e59886d72e9058309d10718e79166b" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\ef\9f0857f530f87cd2c9e91882bcaaecb97d574d" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\f0\1a2f89b326dc7748b511245087032162f9c3d7" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\f0\95d45bcdd1b8f3e783a3cb8a0fbd72d0ff62da" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\f1\166d1ca016455d86d09f98278233d6aa6f09e0" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\f1\463e27c0d1fa18a2945fe7ace3723715840b90" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\f3\7a925c465dd1cd474de46a4010bdf1d626a58f" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\f7\43fe2459346c6e6c97bc3eb7319e47dfac432a" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\fa\1b25cb670cb0b62c857f4285f481f01d0637d4" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\fb\c256930cd3f94faf7b437bf8d4a250b877e7df" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\fd\6d68ed4f22fb5282ac81a022b19bef08a669db" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\fe\4df0ab26eef987061ad9cb9bc34fcc344e7a13" />
+    <Content Include="Public\lib\pillar\ui\.git\objects\ff\5e90fa9ef19284aa8eadc1e2aaa23d95374d97" />
+    <Content Include="Public\lib\pillar\ui\.git\refs\heads\master" />
+    <Content Include="Public\lib\pillar\ui\.git\refs\remotes\origin\master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Auth\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\config.ini" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -180,7 +472,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>13756</DevelopmentServerPort>
+          <DevelopmentServerPort>16378</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:12160/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

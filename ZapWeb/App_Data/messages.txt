@@ -1,0 +1,2 @@
+﻿USUARIO_SENHA_INCORRETA=Usuário ou senha incorreta
+USUARIO_CANCELADO=Usuário não esta ativo no sistema

@@ -16,6 +16,8 @@ namespace ZapWeb
         {
             AreaRegistration.RegisterAllAreas();
 
+            Pillar.Mvc.Application.Config();
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

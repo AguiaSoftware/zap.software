@@ -1,5 +1,6 @@
 ﻿yum.define([
 	PI.Url.create('App', '/ui.config.js'),
+    PI.Url.create('App', '/app.css'),
     PI.Url.create('Auth', '/page.js')
 ], function (html) {
     

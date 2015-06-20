@@ -11,19 +11,31 @@
 
             this.usuario = new UI.TextBox({
                 dataModel: 'UserName',
-                placeholder: 'Nome do Usuário'
+                placeholder: 'Nome do Usuário',
+                style: {
+                    width: '274px'
+                }
             });
 
             this.senha = new UI.TextBox({
                 type: 'password',
                 dataModel: 'Password',
-                placeholder: 'Senha'
+                placeholder: 'Senha',
+                style: {
+                    width: '274px'
+                }
             });
 
             this.entrar = new UI.Button({
                 label: 'Entrar',
-                classes: 'btn btn-sm btn-success'
+                classes: 'azul'
             });
+        },
+
+        viewDidLoad: function () {
+            this.base.viewDidLoad();
+
+            this.usuario.focus();
         },
 
         tryLogar: function () {
@@ -32,8 +44,10 @@
                 self = this,
                 v = this.injectViewToModel(auth);
 
+            this.view.info.hide();
+
             if (!v.status) {
-                this.view.info.html(v.messages.join('<br/>'));
+                this.setMessage(v.messages.join('<br/>'));
                 return;
             }
 
@@ -43,8 +57,15 @@
                 window.location = "/home";
             }).error(function () {
                 self.entrar.setLabel(label).unlock();
-                self.view.info.html('Usuário ou Senha Incorreta');
+                self.setMessage('Usuário ou Senha Incorreta');
             });
+        },
+
+        setMessage: function (message) {
+            if (PI.Type.isArray(message)) message = message.join('<br/>');
+
+            this.view.info.show();
+            this.view.message.html(message);
         },
 
         events: {

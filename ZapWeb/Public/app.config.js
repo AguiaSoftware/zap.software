@@ -16,7 +16,7 @@ Application.config({
     },
 
     button: {
-        classes: 'btn btn-sm'
+        classes: 'btn btn-sm button'
     },
 
     checkbox: {
